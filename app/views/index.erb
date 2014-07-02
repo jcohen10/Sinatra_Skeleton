@@ -1,42 +1,11 @@
-<div class="container"><br><br>
-  <% if @error %>
+<% if @error %>
+  <div class="container"><br><br>
     <%= @error %>
-  <% end %>
+  </div>
+<% end %>
 
-  <% if @user %>
-    <%= @user.username %>
-    <a href="/sign_out">Sign out</a>
-  <% end %>
 
-  <form id="sign-in" method="post" action="/sign_in">
-    <input type="email" name="email" placeholder="email" value="<%=  %>"><br>
-    <input type="password" name="password" placeholder="password">
-    <br>
-    <button type="submit">Sign In</button>
-  </form><br><br>
-
-  <form id="sign-up" method="post" action="/sign_up">
-
-    <input type="text" name="user[first_name]" placeholder="First Name" value="<%=  %>">
-    <span id="name-errors" class="errors"></span>
-    <br>
-
-    <input type="text" name="user[last_name]" placeholder="Last Name" value="<%=  %>">
-    <span id="name-errors" class="errors"></span>
-    <br>
-
-    <input type="text" name="user[username]" placeholder="Username" value="<%=  %>">
-    <span id="name-errors" class="errors"></span>
-    <br>
-
-    <input type="email" name="user[email]" placeholder="email" value="<%=  %>">
-    <span id="email-errors" class="errors"></span>
-    <br>
-
-    <input type="password" name="user[password]" placeholder="password">
-    <span id="entered_password-errors" class="errors"></span>
-    <br>
-
-    <button type="submit">Sign Up</button>
-  </form>
-</div>
+<% if !@user %>
+  <%= erb :Sign_up%>
+  <%= erb :Sign_in%>
+<% end %>
