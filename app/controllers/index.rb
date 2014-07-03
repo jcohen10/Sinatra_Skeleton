@@ -37,6 +37,11 @@ post '/sign_up' do
   end
 end
 
+# not_found do
+#   status 404
+#   erb :oops
+# end
+
 
 # get '/user/home' do
 #   @current_user = User.find(session[:user_id])
